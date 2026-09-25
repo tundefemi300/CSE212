@@ -85,10 +85,44 @@ else
     /// using the [] notation.
     /// </summary>
     public static bool IsAnagram(string word1, string word2)
+    word1 = word1.Replace(" ", "").ToLower();
+word2 = word2.Replace(" ", "").ToLower();
+
+if (word1.Length != word2.Length)
+{
+    return false;
+}
+
+var letters = new Dictionary<char, int>();
+
+foreach (char letter in word1)
+{
+    if (letters.ContainsKey(letter))
     {
-        // TODO Problem 3 - ADD YOUR CODE HERE
+        letters[letter]++;
+    }
+    else
+    {
+        letters[letter] = 1;
+    }
+}
+
+foreach (char letter in word2)
+{
+    if (!letters.ContainsKey(letter))
+    {
         return false;
     }
+
+    letters[letter]--;
+
+    if (letters[letter] < 0)
+    {
+        return false;
+    }
+}
+
+return true;
 
     /// <summary>
     /// This function will read JSON (Javascript Object Notation) data from the 
