@@ -77,52 +77,48 @@ else
     /// is_anagram("CAT","ACT") would return true
     /// is_anagram("DOG","GOOD") would return false because GOOD has 2 O's
     /// 
-    /// Important Note: When determining if two words are anagrams, you
-    /// should ignore any spaces.  You should also ignore cases.  For 
-    /// example, 'Ab' and 'Ba' should be considered anagrams
-    /// 
-    /// Reminder: You can access a letter by index in a string by 
-    /// using the [] notation.
-    /// </summary>
     public static bool IsAnagram(string word1, string word2)
+{
     word1 = word1.Replace(" ", "").ToLower();
-word2 = word2.Replace(" ", "").ToLower();
+    word2 = word2.Replace(" ", "").ToLower();
 
-if (word1.Length != word2.Length)
-{
-    return false;
-}
-
-var letters = new Dictionary<char, int>();
-
-foreach (char letter in word1)
-{
-    if (letters.ContainsKey(letter))
-    {
-        letters[letter]++;
-    }
-    else
-    {
-        letters[letter] = 1;
-    }
-}
-
-foreach (char letter in word2)
-{
-    if (!letters.ContainsKey(letter))
+    if (word1.Length != word2.Length)
     {
         return false;
     }
 
-    letters[letter]--;
+    var letters = new Dictionary<char, int>();
 
-    if (letters[letter] < 0)
+    foreach (char letter in word1)
     {
-        return false;
+        if (letters.ContainsKey(letter))
+        {
+            letters[letter]++;
+        }
+        else
+        {
+            letters[letter] = 1;
+        }
     }
-}
 
-return true;
+    foreach (char letter in word2)
+    {
+        if (!letters.ContainsKey(letter))
+        {
+            return false;
+        }
+
+        letters[letter]--;
+
+        if (letters[letter] < 0)
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+    
 
     /// <summary>
     /// This function will read JSON (Javascript Object Notation) data from the 
