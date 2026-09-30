@@ -30,7 +30,7 @@ public class LinkedList : IEnumerable<int>
     /// <summary>
     /// Insert a new node at the back (i.e. the tail) of the linked list.
     /// </summary>
-    ( public void InsertTail(int value)
+ public void InsertTail(int value)   
 {
     Node newNode = new(value);
 
