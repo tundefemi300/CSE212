@@ -30,9 +30,7 @@ public class LinkedList : IEnumerable<int>
     /// <summary>
     /// Insert a new node at the back (i.e. the tail) of the linked list.
     /// </summary>
-    public void InsertTail(int value)
-    {
-        public void InsertTail(int value)
+    ( public void InsertTail(int value)
 {
     Node newNode = new(value);
 
@@ -77,8 +75,7 @@ public class LinkedList : IEnumerable<int>
     /// <summary>
     /// Remove the last node (i.e. the tail) of the linked list.
     /// </summary>
-    public void RemoveTail()
-    public void RemoveTail()
+    public void RemoveTail()    
 {
     if (_head == _tail)
     {
@@ -132,7 +129,6 @@ public class LinkedList : IEnumerable<int>
     /// Remove the first node that contains 'value'.
     /// </summary>
     public void Remove(int value)
-   public void Remove(int value)
 {
     Node? curr = _head;
 
@@ -164,8 +160,7 @@ public class LinkedList : IEnumerable<int>
     /// <summary>
     /// Search for all instances of 'oldValue' and replace the value to 'newValue'.
     /// </summary>
-    public void Replace(int oldValue, int newValue)
-    public void Replace(int oldValue, int newValue)
+public void Replace(int oldValue, int newValue)
 {
     Node? curr = _head;
 
@@ -205,8 +200,7 @@ public class LinkedList : IEnumerable<int>
     /// <summary>
     /// Iterate backward through the Linked List
     /// </summary>
-    public IEnumerable Reverse()
-    public IEnumerable Reverse()
+public IEnumerable Reverse()
 {
     var curr = _tail;
 
